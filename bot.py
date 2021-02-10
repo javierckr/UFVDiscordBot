@@ -1,7 +1,7 @@
 import discord
 import os
 import dia_semana
-from _token import DISCORD_TOKEN
+# from _token import DISCORD_TOKEN
 
 
 client = discord.Client()
