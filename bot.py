@@ -1,6 +1,6 @@
 import discord
 import os
-import dia_semana
+from dia_semana import dia_de_la_semana
 # Para cargar variables de entorno
 from dotenv import load_dotenv
 
