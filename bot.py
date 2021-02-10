@@ -1,6 +1,10 @@
 import discord
 import os
 import dia_semana
+# Para cargar variables de entorno
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 client = discord.Client()
@@ -19,7 +23,6 @@ async def on_message(message):
     if message.content.startswith(',buses'):
         await message.channel.send('--- Los horarios de los buses son: --- \n1234')
     elif message.content.startswith(',dia'):
-        await message.channel.send(dia_semana())
-
+        await message.channel.send(dia_de_la_semana())
 
 client.run(os.getenv('DISCORD_TOKEN'))
