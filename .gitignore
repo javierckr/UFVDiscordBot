@@ -1,6 +1,6 @@
 *.swp
 *.pdf
 test*.*
-_*
+__p*
 *.env
 credentials*
