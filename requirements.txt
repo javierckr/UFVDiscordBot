@@ -1,4 +1,4 @@
 discord
 python-dotenv
-ics
-requests
+icalendar
+icalendar_light

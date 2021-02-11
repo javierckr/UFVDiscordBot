@@ -3,3 +3,4 @@
 test*.*
 _*
 *.env
+credentials*
