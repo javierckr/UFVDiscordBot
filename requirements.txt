@@ -1,4 +1,3 @@
 discord
 python-dotenv
-icalendar
-icalendar_light
+google-api-python-client

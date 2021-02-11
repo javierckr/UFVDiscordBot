@@ -1,6 +1,6 @@
 import discord
 import os
-from dia_semana import dia_de_la_semana
+import funciones
 # Para cargar variables de entorno
 from dotenv import load_dotenv
 
@@ -26,6 +26,8 @@ async def on_message(message):
     if message.content.startswith(cmd + 'buses'):
         await message.channel.send('--- Los horarios de los buses son: --- \n1234')
     elif message.content.startswith(cmd + 'dia'):
-        await message.channel.send(dia_de_la_semana())
+        await message.channel.send(funciones.dia_semana.dia_de_la_semana())
+    elif message.content.startswith(cmd + 'tareas'):
+        await message.channel.send(funciones.googlecal.main())
 
 client.run(os.getenv('DISCORD_TOKEN'))
