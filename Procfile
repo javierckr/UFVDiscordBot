@@ -1,2 +1,2 @@
 BOT: python bot.py
-BOT: youtubedl.py
+BOT: python youtubedl.py
