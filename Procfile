@@ -1,2 +1,1 @@
-BOT: python bot.py
-BOT: python youtubedl.py
+BOT: start.sh
