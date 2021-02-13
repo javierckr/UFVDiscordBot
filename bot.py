@@ -1,4 +1,5 @@
-import discord
+from discord.ext import commands
+#from discord.ext import commands
 import os
 import funciones
 # Para cargar variables de entorno
@@ -7,27 +8,32 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-client = discord.Client()
-
 # Comando para llamar al bot
-cmd = ','
+bot = commands.Bot(command_prefix=',')
 
 
-@client.event
+@bot.event
 async def on_ready():
-    print('Iniciado con cuenta: {0.user}'.format(client))
+    print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
 
 
-@client.event
-async def on_message(message):
-    if message.author == client.user:
-        return
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
 
-    if message.content.startswith(cmd + 'buses'):
-        await message.channel.send('--- Los horarios de los buses son: --- \n1234')
-    elif message.content.startswith(cmd + 'dia'):
-        await message.channel.send(funciones.dia_semana.dia_de_la_semana())
-    elif message.content.startswith(cmd + 'tareas'):
-        await message.channel.send(funciones.googlecal.main())
 
-client.run(os.getenv('DISCORD_TOKEN'))
+@bot.command()
+async def buses(ctx):
+    await ctx.send('-- Los horarios del bus 659 son: a--\n 8:44 am ')
+
+
+@bot.command()
+async def dia(ctx):
+    await ctx.send(funciones.dia_semana.dia_de_la_semana())
+
+
+@bot.command()
+async def tareas(ctx):
+    await ctx.send(funciones.googlecal.main())
+
+bot.run(os.getenv('DISCORD_TOKEN'))
