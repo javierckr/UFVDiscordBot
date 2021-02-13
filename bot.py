@@ -1,5 +1,4 @@
 from discord.ext import commands
-#from discord.ext import commands
 import os
 import funciones
 # Para cargar variables de entorno
@@ -7,6 +6,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Modulo de música
+funciones.youtubedl.bot.run(os.getenv('DISCORD_TOKEN'))
 
 # Comando para llamar al bot
 bot = commands.Bot(command_prefix=',')
@@ -35,5 +36,6 @@ async def dia(ctx):
 @bot.command()
 async def tareas(ctx):
     await ctx.send(funciones.googlecal.main())
+
 
 bot.run(os.getenv('DISCORD_TOKEN'))
