@@ -14,6 +14,14 @@ bot = commands.Bot(command_prefix=',', description='Bot de discord de la UFV')
 @bot.event
 async def on_ready():
     print('Logged in as:\n{0.user.name}\n{0.user.id}'.format(bot))
+    bot.user.setStatus('available')
+    bot.user.setPresence({
+        game: {
+            name: 'estudiando MPI',
+            type: "STREAMING",
+            url: "https://www.linux.org/"
+        }
+    });
 
 
 @bot.command()
