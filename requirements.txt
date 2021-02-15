@@ -3,3 +3,4 @@ python-dotenv
 google-api-python-client
 youtube-dl
 pynacl
+prettytable

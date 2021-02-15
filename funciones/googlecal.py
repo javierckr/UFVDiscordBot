@@ -2,6 +2,7 @@ from __future__ import print_function
 import datetime
 import os
 from googleapiclient.discovery import build
+from prettytable import PrettyTable
 
 from dotenv import load_dotenv
 
@@ -9,7 +10,8 @@ load_dotenv()
 
 
 def main():
-    sol = ''
+    sol = PrettyTable()
+    sol.field_names = ["Fecha", "Evento"]
     # print(os.getenv('CALENDAR_TOKEN'))
 
     service = build('calendar', 'v3', developerKey=os.getenv('CALENDAR_TOKEN'))
@@ -26,9 +28,11 @@ def main():
         print('No upcoming events found.')
     for event in events:
         start = event['start'].get('dateTime', event['start'].get('date'))
+        start = start.replace("Z", "").replace("T", " ")
         print(start, event['summary'])
-        sol += '  '.join((start, event['summary']))
-        sol += '\n'
+        sol.add_row((start, event['summary']))
+        #sol += '  '.join((start, event['summary']))
+        #sol += '\n'
     return sol
 
 
