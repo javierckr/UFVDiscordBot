@@ -1,7 +1,6 @@
 import datetime
 
 def dia_de_la_semana():
-    print("Hello from a function")
     dia = datetime.datetime.today().weekday() + 1
     
     if dia == 1:
