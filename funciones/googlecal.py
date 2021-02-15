@@ -33,7 +33,7 @@ def main():
         sol.add_row((start, event['summary']))
         #sol += '  '.join((start, event['summary']))
         #sol += '\n'
-    return sol
+    return sol.get_string()
 
 
 

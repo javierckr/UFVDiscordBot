@@ -39,7 +39,7 @@ async def dia(ctx):
 @bot.command()
 async def tareas(ctx):
     """ Comando que te muestra las 10 siguientes tareas del calendario de las universidad """
-    await ctx.send(funciones.googlecal.main())
+    await ctx.send("```\n"+funciones.googlecal.main()+"```")
 
 
 @bot.command()
