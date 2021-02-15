@@ -42,4 +42,12 @@ async def tareas(ctx):
     await ctx.send(funciones.googlecal.main())
 
 
+@bot.command()
+async def enlaces(ctx):
+    """ Comando para ver las url de interés """
+    await ctx.send("Canvas: https://ufv-es.instructure.com/login/canvas\n"
+                   "Portal Universitario: https://ssofv.ufv.es/public_oam_ufv_ufv/oam/login.jsp\n"
+                   "Página principal: https://www.ufv.es/")
+
+
 bot.run(os.getenv('DISCORD_TOKEN'))
