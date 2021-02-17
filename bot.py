@@ -19,6 +19,7 @@ bot = commands.Bot(command_prefix=',', description='Bot de discord de la UFV')
 @bot.event
 async def on_ready():
     print('Iniciado. Nombre: [{0.user.name}], ID: [{0.user.id}]'.format(bot))
+    print(funciones.chiste.main())
     await bot.change_presence(activity=discord.Streaming(name="Matemáticas para la ingeniería", url="https://linux.org/"))
 
 
