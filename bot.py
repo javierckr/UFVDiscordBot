@@ -36,7 +36,10 @@ async def buses(ctx):
 @bot.command()
 async def dia(ctx):
     """ Comando que dice las asignaturas del día """
-    await ctx.send(funciones.dia_semana.dia_de_la_semana())
+    # await ctx.send(funciones.dia_semana.dia_de_la_semana())
+    await ctx.send("```\n" +
+                   funciones.horario.get_horario(funciones.dia_semana.dia_de_la_semana())
+                   + "```")
 
 
 @bot.command()
@@ -58,6 +61,7 @@ async def enlaces(ctx):
                    "Portal Universitario: https://ssofv.ufv.es/public_oam_ufv_ufv/oam/login.jsp\n"
                    "Página principal: https://www.ufv.es/")
 
+
 @bot.command()
 async def horario(ctx):
     """ Genera horario actual """
@@ -66,6 +70,7 @@ async def horario(ctx):
         imagen_generada.save(image_binary, 'PNG')
         image_binary.seek(0)
         await ctx.send(file=discord.File(fp=image_binary, filename='Horario.jpg'))
+
 
 @bot.command()
 async def fecha(ctx):
@@ -76,6 +81,7 @@ async def fecha(ctx):
     currentYear = str(datetime.now().year)
 
     await ctx.send("Hoy es " + funciones.dia_de_la_semana() + ", día " + currentDay + " de " + funciones.mes_actual(currentMonth) + " de " + currentYear)
+
 
 @bot.command()
 async def chiste(ctx):

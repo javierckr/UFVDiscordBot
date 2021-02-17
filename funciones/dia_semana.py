@@ -8,12 +8,12 @@ def dia_de_la_semana():
     elif dia == 2:
         return "Martes"
     elif dia == 3:
-        return "Miercoles"
+        return "Miércoles"
     elif dia == 4:
         return "Jueves"
     elif dia == 5:
         return "Viernes"
     elif dia == 6:
-        return "Sabado"
+        return "Sábado"
     elif dia == 7:
         return "Domingo"
