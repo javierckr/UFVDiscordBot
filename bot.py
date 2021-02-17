@@ -60,18 +60,18 @@ async def enlaces(ctx):
                    "Página principal: https://www.ufv.es/")
 
 @bot.command()
-async def horario(ctx, arg1, arg2, arg3):
+async def horario(ctx):
     """ Genera horario actual """
 
     # argumentos temporales!!
-    base = Image.open("mountains.jpg").convert("RGBA")
+    base = Image.open("./recursos/images/mountains.jpg").convert("RGBA")
     
     txt = Image.new("RGBA", base.size, (255,255,255,0))
 
-    fnt1 = ImageFont.truetype("UbuntuMono-Regular.ttf", 44)
-    fnt2 = ImageFont.truetype("digital-7.ttf", 330)
-    fnt3 = ImageFont.truetype("OpenSans-Regular.ttf", 100)
-    fnt4 = ImageFont.truetype("OpenSans-Light.ttf", int(arg3))
+    fnt1 = ImageFont.truetype("./recursos/fonts/UbuntuMono-Regular.ttf", 44)
+    fnt2 = ImageFont.truetype("./recursos/fonts/digital-7.ttf", 330)
+    fnt3 = ImageFont.truetype("./recursos/fonts/OpenSans-Regular.ttf", 100)
+    fnt4 = ImageFont.truetype("./recursos/fonts/OpenSans-Light.ttf", 40)
 
     # get a drawing context
     d = ImageDraw.Draw(txt)
@@ -89,7 +89,14 @@ async def horario(ctx, arg1, arg2, arg3):
     d.text(((wi-w1)/2,700), horario_actual, font=fnt1, fill=(255,255,255,255))
     d.text(((wi-w2)/2,260), current_time, font=fnt2, fill=(255,255,255,255)) 
     d.text(((wi-w3)/2,539), dia_semana_actual, font=fnt3, fill=(255,255,255,255))
-    d.text((int(arg1),int(arg2)), "Pedido por: \n" + ctx.author.name + "#" + str(ctx.author.id), font=fnt4, fill=(255,255,255,255))    
+
+    clase = "No establecido"
+    for role in ctx.author.roles:
+        first_char = str(role)[0]
+        if first_char.isdigit():
+            clase = str(role)
+
+    d.text((20,20), "Pedido por: \n" + ctx.author.name + "#" + str(ctx.author.discriminator) + " (" + clase + ")", font=fnt4, fill=(255,255,255,255))    
 
     out = Image.alpha_composite(base, txt)
 
@@ -99,5 +106,7 @@ async def horario(ctx, arg1, arg2, arg3):
         await ctx.send(file=discord.File(fp=image_binary, filename='Horario.jpg'))
 
 
+if "1".isdigit():
+    print("si")
 bot.run(os.getenv('DISCORD_TOKEN'))
 
