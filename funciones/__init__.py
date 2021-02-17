@@ -3,3 +3,4 @@
 from .dia_semana import *
 from .googlecal import *
 from .horario import *
+from .chiste import *
