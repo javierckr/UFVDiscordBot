@@ -36,14 +36,20 @@ async def buses(ctx):
 
 @bot.command()
 async def dia(ctx):
-    """ Comando que dice las asignaturas del dia """
+    """ Comando que dice las asignaturas del día """
     await ctx.send(funciones.dia_semana.dia_de_la_semana())
 
 
 @bot.command()
 async def tareas(ctx):
     """ Comando que te muestra las 10 siguientes tareas del calendario de las universidad """
-    await ctx.send("```\n"+funciones.googlecal.main()+"```")
+    await ctx.send("```\n"+funciones.googlecal.main(1)+"```")
+
+
+@bot.command()
+async def examenes(ctx):
+    """ Comando que te muestra los 10 siguientes exámenes o entregas importantes"""
+    await ctx.send("```\n"+funciones.googlecal.main(0)+"```")
 
 
 @bot.command()

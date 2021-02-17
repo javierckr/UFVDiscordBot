@@ -9,17 +9,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def main():
+def main(arg):
     sol = PrettyTable()
     sol.field_names = ["Fecha", "Evento"]
-    # print(os.getenv('CALENDAR_TOKEN'))
 
     service = build('calendar', 'v3', developerKey=os.getenv('CALENDAR_TOKEN'))
 
-    # Call the Calendar API
-    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indicates UTC time
+    # Llama a la API del calendario
+    now = datetime.datetime.utcnow().isoformat() + 'Z' # 'Z' indica UTC time
     print('Getting the upcoming 10 events')
-    events_result = service.events().list(calendarId='qd0k8epqdam5jg2ldgpq6vu79vq5hbk8@import.calendar.google.com', timeMin=now,
+    if (arg):
+        events_result = service.events().list(calendarId='qd0k8epqdam5jg2ldgpq6vu79vq5hbk8@import.calendar.google.com', timeMin=now,
+                                        maxResults=10, singleEvents=True,
+                                        orderBy='startTime').execute()
+    else:
+        events_result = service.events().list(calendarId='p2q8lhhkk4jsugqeagv7iug2mnv2avup@import.calendar.google.com', timeMin=now,
                                         maxResults=10, singleEvents=True,
                                         orderBy='startTime').execute()
     events = events_result.get('items', [])
