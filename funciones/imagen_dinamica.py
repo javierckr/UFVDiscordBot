@@ -14,6 +14,7 @@ def generar_imagen(author):
 
     d = ImageDraw.Draw(txt)
 
+    time.tzset()
     current_time = time.strftime('%H:%M:%S')
     horario_actual = funciones.get_horario()
     dia_semana_actual = funciones.dia_de_la_semana()

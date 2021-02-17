@@ -77,5 +77,10 @@ async def fecha(ctx):
 
     await ctx.send("Hoy es " + funciones.dia_de_la_semana() + ", día " + currentDay + " de " + funciones.mes_actual(currentMonth) + " de " + currentYear)
 
+@bot.command()
+async def chiste(ctx):
+    """ Te cuenta un chiste """
+    await ctx.send(funciones.chiste.main())
+
 
 bot.run(os.getenv('DISCORD_TOKEN'))
