@@ -82,5 +82,10 @@ async def chiste(ctx):
     """ Te cuenta un chiste """
     await ctx.send(funciones.chiste.main())
 
+@bot.command()
+async def pepe(ctx):
+    """ Te cuenta un chiste """
+    await ctx.send(funciones.ascii_art.main())
+
 
 bot.run(os.getenv('DISCORD_TOKEN'))

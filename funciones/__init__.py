@@ -6,3 +6,4 @@ from .horario import *
 from .imagen_dinamica import *
 from .chiste import *
 from .mes import *
+from .ascii_art import *
