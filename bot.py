@@ -67,5 +67,11 @@ async def horario(ctx):
         image_binary.seek(0)
         await ctx.send(file=discord.File(fp=image_binary, filename='Horario.jpg'))
 
-bot.run(os.getenv('DISCORD_TOKEN'))
 
+@bot.command()
+async def chiste(ctx):
+    """ Te cuenta un chiste """
+    await ctx.send(funciones.chiste.main())
+
+
+bot.run(os.getenv('DISCORD_TOKEN'))
