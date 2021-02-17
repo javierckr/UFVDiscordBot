@@ -3,6 +3,7 @@ import discord
 import os
 import io
 import funciones
+from datetime import datetime
 
 # Para cargar variables de entorno
 from dotenv import load_dotenv
@@ -17,7 +18,6 @@ bot = commands.Bot(command_prefix=',', description='Bot de discord de la UFV')
 @bot.event
 async def on_ready():
     print('Iniciado. Nombre: [{0.user.name}], ID: [{0.user.id}]'.format(bot))
-    print(funciones.chiste.main())
     await bot.change_presence(activity=discord.Streaming(name="Matemáticas para la ingeniería", url="https://linux.org/"))
 
 
@@ -67,5 +67,15 @@ async def horario(ctx):
         image_binary.seek(0)
         await ctx.send(file=discord.File(fp=image_binary, filename='Horario.jpg'))
 
-bot.run(os.getenv('DISCORD_TOKEN'))
+@bot.command()
+async def fecha(ctx):
+    """ Dice la fecha actual """
 
+    currentDay = str(datetime.now().day)
+    currentMonth = datetime.now().month
+    currentYear = str(datetime.now().year)
+
+    await ctx.send("Hoy es " + funciones.dia_de_la_semana() + ", día " + currentDay + " de " + funciones.mes_actual(currentMonth) + " de " + currentYear)
+
+
+bot.run(os.getenv('DISCORD_TOKEN'))
