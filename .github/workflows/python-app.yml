@@ -26,4 +26,6 @@ jobs:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
     - name: Run Bot
       run: |
-      python python bot.py & python youtubedl.py
+      python bot.py & python youtubedl.py
+      env:
+       key: ${{ secrets.key }}
