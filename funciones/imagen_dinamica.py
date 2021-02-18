@@ -2,10 +2,11 @@ import funciones
 import time
 from PIL import Image, ImageDraw, ImageFont
 
+
 def generar_imagen(author):
 
     base = Image.open("./recursos/images/mountains.jpg").convert("RGBA")
-    txt = Image.new("RGBA", base.size, (255,255,255,0))
+    txt = Image.new("RGBA", base.size, (255, 255, 255, 0))
 
     fnt1 = ImageFont.truetype("./recursos/fonts/UbuntuMono-Regular.ttf", 44)
     fnt2 = ImageFont.truetype("./recursos/fonts/digital-7.ttf", 330)
@@ -15,7 +16,7 @@ def generar_imagen(author):
     d = ImageDraw.Draw(txt)
 
     time.tzset()
-    current_time = time.strftime('%H:%M:%S')
+    current_time = time.strftime("%H:%M:%S")
     horario_actual = funciones.get_horario()
     dia_semana_actual = funciones.dia_de_la_semana()
 
@@ -25,9 +26,11 @@ def generar_imagen(author):
 
     wi = 1920
 
-    d.text(((wi-w1)/2,700), horario_actual, font=fnt1, fill=(255,255,255,255))
-    d.text(((wi-w2)/2,260), current_time, font=fnt2, fill=(255,255,255,255)) 
-    d.text(((wi-w3)/2,539), dia_semana_actual, font=fnt3, fill=(255,255,255,255))
+    d.text(((wi - w1) / 2, 700), horario_actual, font=fnt1, fill=(255, 255, 255, 255))
+    d.text(((wi - w2) / 2, 260), current_time, font=fnt2, fill=(255, 255, 255, 255))
+    d.text(
+        ((wi - w3) / 2, 539), dia_semana_actual, font=fnt3, fill=(255, 255, 255, 255)
+    )
 
     clase = "No establecido"
     for role in author.roles:
@@ -35,6 +38,17 @@ def generar_imagen(author):
         if first_char.isdigit():
             clase = str(role)
 
-    d.text((20,20), "Pedido por: \n" + author.name + "#" + str(author.discriminator) + " (" + clase + ")", font=fnt4, fill=(255,255,255,255))    
+    d.text(
+        (20, 20),
+        "Pedido por: \n"
+        + author.name
+        + "#"
+        + str(author.discriminator)
+        + " ("
+        + clase
+        + ")",
+        font=fnt4,
+        fill=(255, 255, 255, 255),
+    )
 
-    return(Image.alpha_composite(base, txt))
+    return Image.alpha_composite(base, txt)

@@ -1,8 +1,9 @@
 import datetime
 
+
 def dia_de_la_semana():
     dia = datetime.datetime.today().weekday() + 1
-    
+
     if dia == 1:
         return "Lunes"
     elif dia == 2:
