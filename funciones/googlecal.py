@@ -10,8 +10,9 @@ load_dotenv()
 
 
 def main(arg):
-    sol = PrettyTable()
-    sol.field_names = ["Fecha", "Evento"]
+    sol = ''
+    # sol = PrettyTable()
+    # sol.field_names = ["Fecha", "Evento"]
 
     service = build('calendar', 'v3', developerKey=os.getenv('CALENDAR_TOKEN'))
 
@@ -34,10 +35,10 @@ def main(arg):
         start = event['start'].get('dateTime', event['start'].get('date'))
         start = start.replace("Z", "").replace("T", " ")
         print(start, event['summary'])
-        sol.add_row((start, event['summary']))
-        #sol += '  '.join((start, event['summary']))
-        #sol += '\n'
-    return sol.get_string()
+        #sol.add_row((start, event['summary']))
+        sol += '  '.join((start, event['summary']))
+        sol += '\n'
+    return sol  # .get_string()
 
 
 
