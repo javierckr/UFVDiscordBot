@@ -28,4 +28,4 @@ jobs:
       run: |
         python bot.py & python youtubedl.py
       env:
-       key: ${{ secrets.key }}
+       DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
