@@ -3,9 +3,7 @@
 
 name: Python Bot
 
-on:
-  schedule:
-  - cron:  '*/1 * * * *'
+on: workflow_dispatch
 jobs:
   build:
 
