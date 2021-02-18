@@ -5,9 +5,7 @@ name: Python Bot
 
 on:
   schedule:
-    - cron:  '* * * * *'
-
-
+  - cron:  '*/1 * * * *'
 jobs:
   build:
 
