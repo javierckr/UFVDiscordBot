@@ -34,3 +34,4 @@ jobs:
       env:
        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
        CALENDAR_TOKEN: ${{ secrets.CALENDAR_TOKEN }}
+       TZ: ${{ secrets.TZ }}
