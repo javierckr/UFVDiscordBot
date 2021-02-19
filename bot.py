@@ -43,7 +43,9 @@ async def dia(ctx):
     # await ctx.send(funciones.dia_semana.dia_de_la_semana())
     await ctx.send(
         "```\n"
-        + funciones.horario.get_horario(funciones.dia_semana.dia_de_la_semana())
+        + funciones.horario.get_horario(
+            funciones.dia_semana.dia_de_la_semana()
+        )
         + "```"
     )
 
@@ -77,7 +79,9 @@ async def horario(ctx):
     with io.BytesIO() as image_binary:
         imagen_generada.save(image_binary, "PNG")
         image_binary.seek(0)
-        await ctx.send(file=discord.File(fp=image_binary, filename="Horario.jpg"))
+        await ctx.send(
+            file=discord.File(fp=image_binary, filename="Horario.jpg")
+        )
 
 
 @bot.command()

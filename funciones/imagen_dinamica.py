@@ -26,10 +26,23 @@ def generar_imagen(author):
 
     wi = 1920
 
-    d.text(((wi - w1) / 2, 700), horario_actual, font=fnt1, fill=(255, 255, 255, 255))
-    d.text(((wi - w2) / 2, 260), current_time, font=fnt2, fill=(255, 255, 255, 255))
     d.text(
-        ((wi - w3) / 2, 539), dia_semana_actual, font=fnt3, fill=(255, 255, 255, 255)
+        ((wi - w1) / 2, 700),
+        horario_actual,
+        font=fnt1,
+        fill=(255, 255, 255, 255),
+    )
+    d.text(
+        ((wi - w2) / 2, 260),
+        current_time,
+        font=fnt2,
+        fill=(255, 255, 255, 255),
+    )
+    d.text(
+        ((wi - w3) / 2, 539),
+        dia_semana_actual,
+        font=fnt3,
+        fill=(255, 255, 255, 255),
     )
 
     clase = "No establecido"
