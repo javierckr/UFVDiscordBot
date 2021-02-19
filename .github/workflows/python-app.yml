@@ -3,12 +3,10 @@
 
 name: Python Bot
 
-on:
+on: 
   workflow_dispatch:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+  schedule:
+    - cron: '* */6 * * *'
 jobs:
   build:
 
