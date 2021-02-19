@@ -6,7 +6,7 @@ name: Python Bot
 on: 
   workflow_dispatch:
   schedule:
-    - cron: '* * * * *'
+    - cron: '* */6 * * *'
 jobs:
   build:
 
