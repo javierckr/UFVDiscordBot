@@ -13,4 +13,8 @@ Bot de discord para gestionar los canales de discord de la UFV
 # Windous
 ### Heroku install
 
-
+0. git clone https://github.com/javierckr/UFVDiscordBot.git
+1. Add your .env secrets to heroku
+2. Install this buildpacks on heroku:heroku/python https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git https://github.com/xrisk/heroku-opus.git
+3. Deploy to heroku: git push heroku main
+4. Enable dynos for the bot
